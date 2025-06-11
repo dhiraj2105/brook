@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@font-face {
+    font-family: 'Cinzel';
+    src: url('/fonts/Cinzel-Regular.ttf');
+}
+
+* {
+    font-family: 'Cinzel';
+}
+
+
+/* Customize Swiper navigation arrows */
+@layer utilities {
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        color: white !important;
+        /* Force white */
+    }
+
+    /* Optional: improve visibility */
+    .swiper-button-prev::after,
+    .swiper-button-next::after {
+        font-size: 1.5rem;
+        /* Tailor size */
+    }
+}
