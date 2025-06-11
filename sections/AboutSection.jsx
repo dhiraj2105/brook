@@ -32,22 +32,7 @@ export default function AboutSection() {
                     Whether you're seeking an elevated living experience or a future-proof real estate investment, The Brook offers the perfect blend of both.
                 </p>
 
-                {/* Stats */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8 max-w-6xl mx-auto">
-                    {[
-                        { number: "10+", label: "Years Experience" },
-                        { number: "500+", label: "Projects Delivered" },
-                        { number: "1000+", label: "Happy Families" },
-                        { number: "100%", label: "On-time Delivery" },
-                        { number: "24/7", label: "Support Team" },
-                        { number: "A+", label: "Construction Grade" },
-                    ].map((item, index) => (
-                        <div key={index} className="flex flex-col items-center">
-                            <span className="text-4xl md:text-5xl font-bold text-white">{item.number}</span>
-                            <p className="mt-2 text-sm md:text-base text-white text-center">{item.label}</p>
-                        </div>
-                    ))}
-                </div>
+
             </div>
         </section>
     );

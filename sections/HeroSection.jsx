@@ -218,7 +218,7 @@ export default function HeroSection() {
 
             {/* Right Content Section */}
             <div className="w-full md:w-1/2 flex flex-col justify-center items-center px-6 py-10 md:p-16 bg-white text-gray-900">
-                <h1 className="text-5xl md:text-8xl font-playfair font-semibold text-center text-[#1d1e22]">
+                <h1 className="text-5xl md:text-[90px] font-playfair font-semibold text-center text-[#1d1e22]">
                     The Brook
                 </h1>
 

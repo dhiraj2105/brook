@@ -12,13 +12,13 @@ import bgImage from '../assets/amenities.png';
 
 const accordionData = [
     {
-        title: '3 BHK – Approx. 1450 – 1650 sq. ft.',
+        title: '3 BHK – 1350-1545 sq. ft.',
         content:
             'Ideal for growing families, our 3 BHK layouts are designed with spacious living areas, corner ventilation, modular kitchens, and premium fittings to offer comfort and style.',
         image: floorplan1,
     },
     {
-        title: '4 BHK – Approx. 1850 – 2000+ sq. ft.',
+        title: '4 BHK – 2010-2050 sq. ft.',
         content:
             'Our 4 BHK residences offer expansive spaces perfect for larger families, featuring thoughtfully designed layouts, airy balconies, and smartly planned utility zones.',
         image: floorplan2,

@@ -15,7 +15,7 @@ import { GrYoga } from 'react-icons/gr';
 import { MdOutlineDeck } from 'react-icons/md';
 
 import bgImage from '../assets/amenities.png';
-import amenitiesImage from '../assets/mainHighlight.webp';
+import amenitiesImage from '../assets/amenities.jpg';
 
 const amenities = [
     { icon: <FaPlayCircle />, label: "Toddlers' Play Area" },
@@ -30,7 +30,6 @@ const amenities = [
     { icon: <FaGolfBall />, label: 'Chip and Putting Greens' },
     { icon: <FaDumbbell />, label: 'Jogging Track & Gymnasium' },
     { icon: <FaTree />, label: 'Topiary Garden' },
-    { icon: <FaTree />, label: 'Lawn' },
 ];
 
 export default function AmenitiesSection() {
@@ -46,7 +45,9 @@ export default function AmenitiesSection() {
             {/* Content */}
             <div className="relative z-10 container mx-auto text-center md:text-left">
                 <h5 className="text-xl font-semibold uppercase tracking-wide mb-4">Amenities</h5>
-                <h2 className="text-3xl md:text-5xl font-bold mb-12">Thoughtful Spaces for a Balanced Life</h2>
+                <h2 className="text-3xl md:text-5xl font-bold mb-12">Indulgent Living. Inspired Amenities.
+
+                </h2>
 
                 <div className="grid lg:grid-cols-2 gap-10 items-start">
                     {/* Static Image */}
