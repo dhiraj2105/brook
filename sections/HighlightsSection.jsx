@@ -72,7 +72,7 @@ export default function HighlightsSection() {
 
                 {/* See More Button */}
                 <div className="mt-10">
-                    <button className="border border-black text-black px-6 py-2 cursor-pointer hover:bg-black hover:text-white transition" onClick={openPopup}>
+                    <button className="border bg-[#D0B674]  text-white px-6 py-2 cursor-pointer hover:bg-black text-xl hover:text-white transition" onClick={openPopup}>
                         See More
                     </button>
                 </div>

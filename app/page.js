@@ -15,11 +15,9 @@ const page = () => {
       <HeroSection />
       <AboutSection />
       <HighlightsSection />
-      {/* <PriceListSection /> */}
       <AmenitiesSection />
       <LocationSection />
       <FloorPlansSection />
-      {/* <GallerySection /> */}
       <ContactSection />
     </>
   );

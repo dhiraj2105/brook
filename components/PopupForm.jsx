@@ -87,18 +87,18 @@ export default function PopupForm() {
                             style={{ backgroundImage: `url(${logo.src})` }}
                         >
                             {/* Optional overlay for better text readability */}
-                            <div className="absolute inset-0 bg-black/40 z-0" aria-hidden="true" />
+                            <div className="absolute inset-0 bg-black/30 z-0" aria-hidden="true" />
 
                             <button
                                 onClick={closeModal}
                                 aria-label="Close popup"
-                                className="absolute top-3 right-4 text-white font-extrabold text-4xl p-2 hover:text-gray-300 z-20"
+                                className="absolute sm:top-5 right-4 text-white font-extrabold text-4xl p-2 hover:text-gray-300 z-20 cursor-pointer"
                             >
                                 ×
                             </button>
 
                             <div className="w-full p-6 md:p-10 overflow-y-auto relative z-10">
-                                <h2 className="text-xl font-semibold mb-4 text-white">
+                                <h2 className="text-2xl font-semibold mb-4 text-white">
                                     Book a Visit
                                 </h2>
                                 <form className="space-y-4" onSubmit={handleSubmit}>
@@ -106,7 +106,7 @@ export default function PopupForm() {
                                         type="text"
                                         name="name"
                                         placeholder="Your Name"
-                                        className="w-full px-4 py-2 border border-gray-300  text-white"
+                                        className="w-full px-4 py-2 border border-gray-300 text-white focus:outline-none focus:ring-1 focus:ring-[#D0B674]"
                                         required
                                         value={formData.name}
                                         onChange={handleChange}
@@ -115,7 +115,7 @@ export default function PopupForm() {
                                         type="email"
                                         name="email"
                                         placeholder="Email"
-                                        className="w-full px-4 py-2 border border-gray-300  text-white"
+                                        className="w-full px-4 py-2 border border-gray-300 text-white focus:outline-none focus:ring-1 focus:ring-[#D0B674]"
                                         required
                                         value={formData.email}
                                         onChange={handleChange}
@@ -124,7 +124,7 @@ export default function PopupForm() {
                                         type="tel"
                                         name="phone"
                                         placeholder="Phone Number"
-                                        className="w-full px-4 py-2 border border-gray-300  text-white"
+                                        className="w-full px-4 py-2 border border-gray-300 text-white focus:outline-none focus:ring-1 focus:ring-[#D0B674]"
                                         required
                                         value={formData.phone}
                                         onChange={handleChange}
@@ -132,7 +132,7 @@ export default function PopupForm() {
                                     <textarea
                                         name="message"
                                         placeholder="Write Your Message Here"
-                                        className="w-full px-4 py-2 border border-gray-300  text-white"
+                                        className="w-full px-4 py-2 border border-gray-300 text-white focus:outline-none focus:ring-1 focus:ring-[#D0B674]"
                                         rows={3}
                                         value={formData.message}
                                         onChange={handleChange}
@@ -140,7 +140,7 @@ export default function PopupForm() {
 
                                     <button
                                         type="submit"
-                                        className="w-full py-2 border border-black font-bold hover:bg-black hover:text-white transition duration-300 bg-white"
+                                        className="w-full py-2  font-bold bg-[#D0B674] hover:bg-black text-white cursor-pointer transition duration-300 focus:outline-none focus:ring-1 focus:ring-[#D0B674]"
                                     >
                                         Submit
                                     </button>

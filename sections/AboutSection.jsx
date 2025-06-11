@@ -6,7 +6,7 @@ import bgImage from '../assets/bg.webp'; // Adjust this path
 export default function AboutSection() {
     return (
         <section id='about'
-            className="w-full h-[80vh] px-6 bg-cover bg-center relative flex items-center justify-center"
+            className="w-full sm:h-[80vh] h-[91vh] px-4 sm:px-6 bg-cover bg-center relative flex items-center justify-center"
             style={{
                 backgroundImage: `url(${bgImage.src})`,
             }}
@@ -15,11 +15,11 @@ export default function AboutSection() {
             <div className="absolute inset-0 bg-black/50 z-0" />
 
             {/* Content */}
-            <div className="relative z-10 max-w-7xl text-center sm:mt-1 mt-16">
+            <div className="relative z-10 max-w-7xl text-center sm:mt-0 mt-25">
                 {/* Label */}
-                <p className="text-sm text-white font-semibold uppercase tracking-widest mb-3">
+                <h4 className="text-[16px] text-white font-semibold uppercase tracking-widest mb-3">
                     ABOUT US
-                </p>
+                </h4>
 
                 {/* Heading */}
                 <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-snug">

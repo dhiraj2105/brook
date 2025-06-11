@@ -1,109 +1,3 @@
-// 'use client';
-// import { useState } from 'react';
-// import Image from 'next/image';
-
-// // Floor plan images
-// import floorplan1 from '../assets/floor1.webp';
-// import floorplan2 from '../assets/floor2.webp';
-
-// // Background image
-// import bgImage from '../assets/amenities.png';
-
-// const accordionData = [
-//     {
-//         title: '1 Bedroom',
-//         content: 'Spacious layout with a single bedroom, modern kitchen, and cozy living room.',
-//         image: floorplan1,
-//     },
-//     {
-//         title: '2 Bedroom',
-//         content: 'Two well-sized bedrooms, shared bathroom, and open concept living space.',
-//         image: floorplan2,
-//     },
-//     {
-//         title: 'Penthouse Suite',
-//         content: 'Luxury penthouse with private rooftop access, 3 bedrooms, and premium finishes.',
-//         image: floorplan1,
-//     },
-// ];
-
-// const FloorPlansSection = () => {
-//     const [openIndex, setOpenIndex] = useState(0);
-
-//     const toggleAccordion = (index) => {
-//         setOpenIndex(index === openIndex ? null : index);
-//     };
-
-//     return (
-//         <section
-//             id='floorPlan'
-//             className="w-full bg-cover bg-center bg-no-repeat"
-//             style={{ backgroundImage: `url(${bgImage.src})` }}
-//         >
-//             <div className="w-full h-full">
-//                 <div className="max-w-7xl mx-auto px-6 py-20">
-//                     {/* Title */}
-//                     <div className="text-center mb-12">
-//                         <p className="text-base uppercase tracking-widest font-semibold">
-//                             Floor Plans
-//                         </p>
-//                         <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mt-2">
-//                             Explore Our Layouts
-//                         </h2>
-//                     </div>
-
-//                     {/* Content */}
-//                     <div className="flex flex-col md:flex-row gap-12 items-start">
-//                         {/* Left: Dynamic Image */}
-//                         <div className="w-full md:w-1/2">
-//                             {openIndex !== null && (
-//                                 <Image
-//                                     src={accordionData[openIndex].image}
-//                                     alt={accordionData[openIndex].title}
-//                                     className="w-full h-auto rounded-lg shadow-xl transition duration-300 ease-in-out"
-//                                     width={700}
-//                                     height={500}
-//                                 />
-//                             )}
-//                         </div>
-
-//                         {/* Right: Accordion */}
-//                         <div className="w-full md:w-1/2 space-y-6">
-//                             {accordionData.map((item, index) => (
-//                                 <div
-//                                     key={index}
-//                                     className="border border-gray-300 rounded-lg shadow-md bg-white overflow-hidden transition"
-//                                 >
-//                                     <button
-//                                         onClick={() => toggleAccordion(index)}
-//                                         className={`w-full px-6 py-5 text-left text-lg font-semibold transition-colors duration-200 ${openIndex === index
-//                                             ? 'bg-blue-50 text-blue-700'
-//                                             : 'bg-gray-100 hover:bg-gray-200 text-gray-800'
-//                                             }`}
-//                                     >
-//                                         {item.title}
-//                                     </button>
-//                                     {openIndex === index && (
-//                                         <div className="px-6 py-4 text-gray-700 text-base leading-relaxed bg-white">
-//                                             {item.content}
-//                                         </div>
-//                                     )}
-//                                 </div>
-//                             ))}
-//                         </div>
-//                     </div>
-//                 </div>
-//             </div>
-//         </section>
-//     );
-// };
-
-// export default FloorPlansSection;
-
-
-
-
-
 "use client";
 
 import { useState } from 'react';
@@ -111,7 +5,7 @@ import Image from 'next/image';
 
 // Floor plan images
 import floorplan1 from '../assets/floor1.webp';
-import floorplan2 from '../assets/floor2.webp';
+import floorplan2 from '../assets/floor1.webp';
 
 // Background image
 import bgImage from '../assets/amenities.png';
@@ -154,9 +48,9 @@ const FloorPlansSection = () => {
                 <div className="max-w-7xl mx-auto px-6 py-20">
                     {/* Title */}
                     <div className="text-center mb-12">
-                        <p className="text-base uppercase tracking-widest font-semibold">
+                        <h4 className="text-base uppercase tracking-widest font-semibold">
                             Layout Options
-                        </p>
+                        </h4>
                         <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mt-2">
                             Tailored for Every Modern Family
                         </h2>
@@ -168,7 +62,7 @@ const FloorPlansSection = () => {
                     {/* Content */}
                     <div className="flex flex-col md:flex-row gap-12 items-start">
                         {/* Left: Dynamic Image */}
-                        <div className="w-full md:w-1/2">
+                        {/* <div className="w-full md:w-1/2">
                             {openIndex !== null && (
                                 <Image
                                     src={accordionData[openIndex].image}
@@ -178,7 +72,24 @@ const FloorPlansSection = () => {
                                     height={500}
                                 />
                             )}
+                        </div> */}
+                        {/* Left: Dynamic Image with blur overlay */}
+                        <div className="w-full md:w-1/2 relative rounded-lg overflow-hidden shadow-xl">
+                            {openIndex !== null && (
+                                <>
+                                    <Image
+                                        src={accordionData[openIndex].image}
+                                        alt={accordionData[openIndex].title}
+                                        className="w-full h-auto transition duration-300 ease-in-out"
+                                        width={700}
+                                        height={500}
+                                    />
+                                    {/* Overlay with blur */}
+                                    <div className="absolute inset-0 bg-white/1 backdrop-blur-[2.5px] pointer-events-none rounded-lg"></div>
+                                </>
+                            )}
                         </div>
+
 
                         {/* Right: Accordion */}
                         <div className="w-full md:w-1/2 space-y-6">
@@ -190,7 +101,7 @@ const FloorPlansSection = () => {
                                     <button
                                         onClick={() => toggleAccordion(index)}
                                         className={`w-full px-6 py-5 text-left text-lg font-semibold transition-colors duration-200 ${openIndex === index
-                                            ? 'bg-blue-50 text-blue-700'
+                                            ? 'bg-blue-50 '
                                             : 'bg-gray-100 hover:bg-gray-200 text-gray-800'
                                             }`}
                                     >

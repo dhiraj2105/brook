@@ -1,14 +1,32 @@
 @import "tailwindcss";
 
-@font-face {
+/* @font-face {
     font-family: 'Cinzel';
     src: url('/fonts/Cinzel-Regular.ttf');
 }
 
 * {
     font-family: 'Cinzel';
+} */
+
+:root {
+    --font-inter: 'Inter', sans-serif;
+    --font-playfair: 'Playfair Display', serif;
 }
 
+body {
+    font-family: var(--font-inter);
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-playfair);
+}
 
 /* Customize Swiper navigation arrows */
 @layer utilities {
@@ -25,4 +43,25 @@
         font-size: 1.5rem;
         /* Tailor size */
     }
+}
+
+
+
+
+
+/* Minimal float animation for icons */
+@keyframes subtleBounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-2px);
+    }
+}
+
+.subtle-bounce {
+    animation: subtleBounce 3s ease-in-out infinite;
 }
