@@ -204,7 +204,7 @@ export default function HeroSection() {
     };
 
     return (
-        <section id="hero" className="min-h-screen flex flex-col md:flex-row">
+        <section id="hero" className="min-h-screen flex flex-col md:flex-row sm:mt-0 mt-20">
             {/* Left Image Section */}
             <div className="w-full md:w-1/2 h-72 md:h-auto relative">
                 <Image
