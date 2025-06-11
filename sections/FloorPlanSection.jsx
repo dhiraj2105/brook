@@ -37,7 +37,9 @@ const FloorPlansSection = () => {
     const toggleAccordion = (index) => {
         setOpenIndex(index === openIndex ? null : index);
     };
-
+    const openPopup = () => {
+        window.dispatchEvent(new Event("openPopup"));
+    };
     return (
         <section
             id="floorPlan"
@@ -114,6 +116,7 @@ const FloorPlansSection = () => {
                                     )}
                                 </div>
                             ))}
+                            <button className="bg-[#D0B674] cursor-pointer text-white border hover:bg-white hover:text-[#D0B674] border-[#D0B674] font-semibold text-lg py-4 px-12 transition duration-300" onClick={openPopup}>Know More</button>
                         </div>
                     </div>
                 </div>
