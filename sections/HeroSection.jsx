@@ -116,9 +116,24 @@ export default function HeroSection() {
         </div>
 
         <button
-          className="mt-4 px-4 py-2 btn text-white fw-semibold"
-          style={{ backgroundColor: "#D0B674" }}
           onClick={openPopup}
+          className="btn px-4 py-2 mt-4 fw-semibold text-white"
+          style={{
+            backgroundColor: "#D0B674",
+            border: "1px solid #D0B674",
+            transition: "all 0.3s ease",
+            fontSize: "1.125rem",
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = "black";
+            e.currentTarget.style.color = "#D0B674";
+            e.currentTarget.style.borderColor = "#D0B674";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = "#D0B674";
+            e.currentTarget.style.color = "white";
+            e.currentTarget.style.borderColor = "#D0B674";
+          }}
         >
           Get In Touch
         </button>
