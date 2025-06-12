@@ -19,14 +19,24 @@ export default function Footer() {
             <Image
               src={mainLogo}
               alt="The Brook Logo"
-              width={180}
-              height={60}
-              className="mb-3"
+              width={160}
+              height={90}
+              className="mb-0"
             />
             <p className="text-muted fs-5">
               <strong>Come Home to Strength, Style & Speed </strong>
-              The Brook isn’t just <strong>well-located </strong> or <strong>well-designed </strong> – it’s <strong>well-backed</strong>. With <strong>fully paid-up land, a 3-side open plot, zero debt </strong>, and a builder known for <strong>100% compliance </strong>, this is a home built on clarity and credibility.
-              Constructed using <strong>Mivan technology </strong> for durability and speed, it’s one of the <strong>fastest progressing projects in the region </strong>. The Brook is not just your address – it’s your advantage.
+              The Brook isn’t just <strong>well-located </strong> or{" "}
+              <strong>well-designed </strong> – it’s{" "}
+              <strong>well-backed</strong>. With{" "}
+              <strong>
+                fully paid-up land, a 3-side open plot, zero debt{" "}
+              </strong>
+              , and a builder known for <strong>100% compliance </strong>, this
+              is a home built on clarity and credibility. Constructed using{" "}
+              <strong>Mivan technology </strong> for durability and speed, it’s
+              one of the{" "}
+              <strong>fastest progressing projects in the region </strong>. The
+              Brook is not just your address – it’s your advantage.
               <strong> Move in. Move ahead. </strong>
             </p>
           </div>
@@ -41,9 +51,21 @@ export default function Footer() {
               className="mb-3"
             />
             <p className="text-muted fs-5">
-              <strong>Built by Fusion Limited – Trusted for Innovation, Integrity & Speed </strong>
-              With a proven track record across NCR, Fusion Limited is known for <strong>exceptional construction quality, zero financial liabilities </strong>, and <strong>100% regulatory compliance </strong>.
-              Led by <strong>highly reputable promoters with a spotless track record and the highest ethical standards </strong>, the group brings a future-forward mindset and complete transparency to every project.
+              <strong>
+                Built by Fusion Limited – Trusted for Innovation, Integrity &
+                Speed{" "}
+              </strong>
+              With a proven track record across NCR, Fusion Limited is known for{" "}
+              <strong>
+                exceptional construction quality, zero financial liabilities{" "}
+              </strong>
+              , and <strong>100% regulatory compliance </strong>. Led by{" "}
+              <strong>
+                highly reputable promoters with a spotless track record and the
+                highest ethical standards{" "}
+              </strong>
+              , the group brings a future-forward mindset and complete
+              transparency to every project.
               <br />
               Their landmark developments like
               <strong> Fusion Homes, French Apartments, The Rivulet </strong>
