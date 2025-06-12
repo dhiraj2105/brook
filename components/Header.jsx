@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-// import parentLogo from "../assets/fusion.png";
 import parentLogo from "../assets/fusion-logo.webp";
 import mainLogo from "../assets/BrookLogo.png";
 
@@ -28,88 +27,76 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? "bg-white shadow-md" : "bg-white/50 backdrop-blur-sm"
-        }`}
+      className={`w-100 transition-all duration-300 ${isScrolled ? "bg-white shadow-md" : "bg-white bg-opacity-75"}`}
+      style={{
+        position: "fixed", // Sticky behavior
+        top: 0,
+        left: 0,
+        right: 0,
+        width: "100%",
+        transition: "all 0.3s ease",
+        backdropFilter: isScrolled ? "none" : "blur(6px)",
+        zIndex: 10000,
+      }}
     >
-      <div className="mx-auto p-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+      <div className="container-fluid py-2 px-3">
+        <div className="d-flex align-items-center justify-content-between" style={{ height: "4rem" }}>
           {/* Left Side Logos */}
-          <div className="flex items-center space-x-4">
+          <div className="d-flex align-items-center">
             {/* Desktop Logo */}
-            <div className="hidden md:flex items-center">
-              {!isScrolled ? (
-                <Image
-                  src={parentLogo}
-                  alt="Logo"
-                  width={200}
-                  height={200}
-                  className="w-auto h-8"
-                />
-              ) : (
-                <Image
-                  src={mainLogo}
-                  alt="Scrolled Logo"
-                  width={600}
-                  height={600}
-                  className="w-auto h-20"
-                />
-              )}
+            <div className="d-none d-md-block">
+              <Image
+                src={isScrolled ? mainLogo : parentLogo}
+                alt="Logo"
+                height={isScrolled ? 80 : 40}
+                style={{ width: "auto" }}
+              />
             </div>
-
             {/* Mobile Logo */}
-            <div className="md:hidden flex items-center">
-              {!isScrolled ? (
-                <Image
-                  src={parentLogo}
-                  alt="Mobile Logo"
-                  width={250}
-                  height={250}
-                  className="w-auto h-10"
-                />
-              ) : (
-                <Image
-                  src={mainLogo}
-                  alt="Mobile Scrolled Logo"
-                  width={300}
-                  height={300}
-                  className="w-auto h-16"
-                />
-              )}
+            <div className="d-md-none d-flex align-items-center">
+              <Image
+                src={isScrolled ? mainLogo : parentLogo}
+                alt="Mobile Logo"
+                height={isScrolled ? 60 : 40}
+                style={{ width: "auto" }}
+              />
             </div>
           </div>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center space-x-6">
-            <nav className="flex space-x-6">
-              {[
-                ["#hero", "Home"],
-                ["#about", "About"],
-                ["#highlights", "Highlights"],
-                ["#amenities", "Amenities"],
-                ["#location", "Location"],
-                ["#floorPlan", "Floor Plans"],
-                ["#contact", "Contact"],
-              ].map(([href, label]) => (
-                <Link
-                  key={label}
-                  href={href}
-                  className="text-black text-xl hover:text-[#F34F43] transition"
-                >
-                  {label}
-                </Link>
-              ))}
-            </nav>
-          </div>
+          <nav className="d-none d-md-flex gap-4">
+            {[
+              ["#hero", "Home"],
+              ["#about", "About"],
+              ["#highlights", "Highlights"],
+              ["#amenities", "Amenities"],
+              ["#location", "Location"],
+              ["#floorPlan", "Floor Plans"],
+              ["#contact", "Contact"],
+            ].map(([href, label]) => (
+              <Link
+                key={label}
+                href={href}
+                className="nav-link text-dark fs-5 px-2 py-1"
+                style={{ transition: "color 0.3s" }}
+              >
+                {label}
+              </Link>
+            ))}
+          </nav>
 
           {/* Hamburger Menu Button */}
-          <div className="flex md:hidden items-center z-50">
+          <div className="d-md-none" style={{ zIndex: 1100, position: 'relative' }}>
             <button
-              className="text-black focus:outline-none"
+              className="btn p-0 border-0 bg-transparent"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle mobile menu"
+              style={{ zIndex: 1101, position: 'relative' }}
             >
               <svg
-                className="w-6 h-6"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -132,37 +119,41 @@ export default function Header() {
               </svg>
             </button>
           </div>
-        </div>
-      </div>
 
-      {/* Full-Screen Mobile Menu */}
-      <div
-        className={`md:hidden fixed top-0 left-0 w-full h-screen bg-white z-40 transition-transform duration-500 ease-in-out transform ${mobileMenuOpen
-          ? "translate-y-0 opacity-100"
-          : "-translate-y-full opacity-0 pointer-events-none"
-          }`}
-      >
-        {/* Padding pushes content below header */}
-        <div className="flex flex-col justify-start px-6 pt-20 pb-8 space-y-6">
-          {[
-            ["#hero", "Home"],
-            ["#about", "About"],
-            ["#highlights", "Highlights"],
-            ["#amenities", "Amenities"],
-            ["#location", "Location"],
-            ["#floorPlan", "Floor Plans"],
-            ["#contact", "Contact"],
-          ].map(([href, label]) => (
-            <Link
-              key={label}
-              href={href}
-              className="text-lg text-gray-800 font-medium hover:text-[#F34F43] transition"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              {label}
-            </Link>
-          ))}
-
+          {/* Full-Screen Mobile Menu */}
+          <div
+            className={`d-md-none position-fixed top-0 start-0 w-100 vh-100 bg-white ${mobileMenuOpen ? "show" : ""
+              }`}
+            style={{
+              transition: "transform 0.5s ease-in-out, opacity 0.5s",
+              transform: mobileMenuOpen ? "translateY(0)" : "translateY(-100%)",
+              opacity: mobileMenuOpen ? 1 : 0,
+              pointerEvents: mobileMenuOpen ? "auto" : "none",
+              zIndex: 1050,
+            }}
+          >
+            <div className="d-flex flex-column px-4 pt-5 pb-3 gap-3">
+              {[
+                ["#hero", "Home"],
+                ["#about", "About"],
+                ["#highlights", "Highlights"],
+                ["#amenities", "Amenities"],
+                ["#location", "Location"],
+                ["#floorPlan", "Floor Plans"],
+                ["#contact", "Contact"],
+              ].map(([href, label]) => (
+                <Link
+                  key={label}
+                  href={href}
+                  className="fs-5 text-dark text-decoration-none"
+                  onClick={() => setMobileMenuOpen(false)}
+                  style={{ transition: "color 0.3s" }}
+                >
+                  {label}
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </header>

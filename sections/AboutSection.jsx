@@ -1,38 +1,52 @@
 "use client";
 
 import Image from 'next/image';
-import bgImage from '../assets/bg.webp'; // Adjust this path
+import bgImage from '../assets/bg.webp'; // Adjust path as needed
 
 export default function AboutSection() {
+    const openPopup = () => {
+        window.dispatchEvent(new Event("openPopup"));
+    };
     return (
-        <section id='about'
-            className="w-full sm:h-[80vh] h-[91vh] px-4 sm:px-6 bg-cover bg-center relative flex items-center justify-center"
+        <section
+            id="about"
+            className="position-relative d-flex justify-content-center align-items-center text-white"
             style={{
                 backgroundImage: `url(${bgImage.src})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                width: '100%',
+                height: '80vh' // Adjusted for full screen
             }}
         >
             {/* Overlay */}
-            <div className="absolute inset-0 bg-black/50 z-0" />
+            <div className="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50"></div>
 
             {/* Content */}
-            <div className="relative z-10 max-w-7xl text-center sm:mt-0 mt-25">
-                {/* Label */}
-                <h4 className="text-[16px] text-white font-semibold uppercase tracking-widest mb-3">
+            <div className="position-relative z-1 container text-center">
+                <h4 className="text-uppercase fw-semibold mb-3" style={{ letterSpacing: '0.1em' }}>
                     ABOUT US
                 </h4>
-
-                {/* Heading */}
-                <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-snug">
+                <h2 className="display-5 fw-bold mb-4">
                     A Home That Breathes, A Lifestyle That Moves Forward
                 </h2>
-
-                {/* Paragraph */}
-                <p className="text-lg md:text-xl max-w-3xl mx-auto text-white mb-12 leading-relaxed">
-                    Nestled in the heart of Sector 12, Greater Noida West, The Brook by Fusion Limited brings together intuitive design, smart home features, and lifestyle-enhancing amenities in one sophisticated address. Every apartment here is crafted to offer abundant natural light, intelligent space planning, and serene green views. A rare combination in today’s vertical cities.
-                    Whether you're seeking an elevated living experience or a future-proof real estate investment, The Brook offers the perfect blend of both.
+                <p className="lead mx-auto mb-5" style={{ maxWidth: '768px' }}>
+                    Located at the most promising corner of Sector 12, The Brook by Fusion Limited merges best-in-class connectivity with thoughtfully designed living. Built on a 3-side open plot with fully paid-up land, it stands tall on legal clarity and architectural intelligence.
+                    With advanced Mivan construction, rapid delivery timelines, and premium-grade finishes, every apartment is a testament to strength and style — built to outlast trends and elevate lifestyles.
+                    Whether you're seeking comfort, status, or an appreciating investment, The Brook delivers on all fronts. Beautifully and efficiently.
                 </p>
-
-
+                <div className="mt-5">
+                    <button
+                        onClick={openPopup}
+                        className="btn px-4 py-2 text-white"
+                        style={{
+                            backgroundColor: "#D0B674",
+                            fontSize: "1.25rem",
+                        }}
+                    >
+                        See More
+                    </button>
+                </div>
             </div>
         </section>
     );

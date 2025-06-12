@@ -2,31 +2,24 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-
-// Floor plan images
 import floorplan1 from '../assets/floor1.webp';
 import floorplan2 from '../assets/floor1.webp';
-
-// Background image
 import bgImage from '../assets/amenities.png';
 
 const accordionData = [
     {
         title: '3 BHK – 1350-1545 sq. ft.',
-        content:
-            'Ideal for growing families, our 3 BHK layouts are designed with spacious living areas, corner ventilation, modular kitchens, and premium fittings to offer comfort and style.',
+        content: 'Ideal for growing families, our 3 BHK layouts are designed with spacious living areas, corner ventilation, modular kitchens, and premium fittings to offer comfort and style.',
         image: floorplan1,
     },
     {
         title: '4 BHK – 2010-2050 sq. ft.',
-        content:
-            'Our 4 BHK residences offer expansive spaces perfect for larger families, featuring thoughtfully designed layouts, airy balconies, and smartly planned utility zones.',
+        content: 'Our 4 BHK residences offer expansive spaces perfect for larger families, featuring thoughtfully designed layouts, airy balconies, and smartly planned utility zones.',
         image: floorplan2,
     },
     {
         title: 'Why Choose The Brook?',
-        content:
-            'Enjoy the freedom to live your way with flexible payment plans, loan assistance from top banks, and layouts tailored for modern lifestyles.',
+        content: 'Enjoy the freedom to live your way with flexible payment plans, loan assistance from top banks, and layouts tailored for modern lifestyles.',
         image: floorplan1,
     },
 ];
@@ -37,90 +30,100 @@ const FloorPlansSection = () => {
     const toggleAccordion = (index) => {
         setOpenIndex(index === openIndex ? null : index);
     };
+
     const openPopup = () => {
         window.dispatchEvent(new Event("openPopup"));
     };
+
     return (
         <section
             id="floorPlan"
-            className="w-full bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: `url(${bgImage.src})` }}
+            style={{
+                backgroundImage: `url(${bgImage.src})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+            }}
         >
-            <div className="w-full h-full">
-                <div className="max-w-7xl mx-auto px-6 py-20">
-                    {/* Title */}
-                    <div className="text-center mb-12">
-                        <h4 className="text-base uppercase tracking-widest font-semibold">
-                            Layout Options
-                        </h4>
-                        <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mt-2">
-                            Tailored for Every Modern Family
-                        </h2>
-                        <p className="text-lg text-gray-600 mt-4 max-w-3xl mx-auto">
-                            At The Brook, space isn’t just square footage — it’s the freedom to live your way.
-                        </p>
-                    </div>
+            <div className="container py-5">
+                <div className="text-center mb-5">
+                    <h4 className="text-uppercase text-secondary fw-semibold">Layout Options</h4>
+                    <h2 className="fw-bold display-5 text-dark mt-2">Tailored for Every Modern Family</h2>
+                    <p className="lead text-muted mt-3 mx-auto" style={{ maxWidth: '700px' }}>
+                        At The Brook, space isn’t just square footage — it’s the freedom to live your way.
+                    </p>
+                </div>
 
-                    {/* Content */}
-                    <div className="flex flex-col md:flex-row gap-12 items-start">
-                        {/* Left: Dynamic Image */}
-                        {/* <div className="w-full md:w-1/2">
-                            {openIndex !== null && (
+                <div className="row align-items-start g-4">
+                    {/* Left: Dynamic Image */}
+                    <div className="col-md-6">
+                        {openIndex !== null && (
+                            <div className="position-relative rounded overflow-hidden shadow">
                                 <Image
                                     src={accordionData[openIndex].image}
                                     alt={accordionData[openIndex].title}
-                                    className="w-full h-auto rounded-lg shadow-xl transition duration-300 ease-in-out"
-                                    width={700}
-                                    height={500}
+                                    className="img-fluid"
+                                    style={{ filter: "blur(3px) drop-shadow(0 0 3px gold)" }}
                                 />
-                            )}
-                        </div> */}
-                        {/* Left: Dynamic Image with blur overlay */}
-                        <div className="w-full md:w-1/2 relative rounded-lg overflow-hidden shadow-xl">
-                            {openIndex !== null && (
-                                <>
-                                    <Image
-                                        src={accordionData[openIndex].image}
-                                        alt={accordionData[openIndex].title}
-                                        className="w-full h-auto transition duration-300 ease-in-out"
-                                        width={700}
-                                        height={500}
-                                    />
-                                    {/* Overlay with blur */}
-                                    <div className="absolute inset-0 bg-white/1 backdrop-blur-[2.5px] pointer-events-none rounded-lg"></div>
-                                </>
-                            )}
-                        </div>
+                                <div className="position-absolute top-0 start-0 w-100 h-100 bg-white bg-opacity-10 backdrop-blur rounded" />
+                            </div>
+                        )}
+                    </div>
 
-
-                        {/* Right: Accordion */}
-                        <div className="w-full md:w-1/2 space-y-6">
+                    {/* Right: Accordion */}
+                    <div className="col-md-6">
+                        <div className="accordion" id="floorPlanAccordion">
                             {accordionData.map((item, index) => (
-                                <div
-                                    key={index}
-                                    className="border border-gray-300 rounded-lg shadow-md bg-white overflow-hidden transition"
-                                >
-                                    <button
-                                        onClick={() => toggleAccordion(index)}
-                                        className={`w-full px-6 py-5 text-left text-lg font-semibold transition-colors duration-200 ${openIndex === index
-                                            ? 'bg-blue-50 '
-                                            : 'bg-gray-100 hover:bg-gray-200 text-gray-800'
-                                            }`}
+                                <div className="accordion-item" key={index}>
+                                    <h2 className="accordion-header" id={`heading${index}`}>
+                                        <button
+                                            className={`accordion-button ${openIndex === index ? '' : 'collapsed'}`}
+                                            type="button"
+                                            onClick={() => toggleAccordion(index)}
+                                        >
+                                            {item.title}
+                                        </button>
+                                    </h2>
+                                    <div
+                                        className={`accordion-collapse collapse ${openIndex === index ? 'show' : ''}`}
                                     >
-                                        {item.title}
-                                    </button>
-                                    {openIndex === index && (
-                                        <div className="px-6 py-4 text-gray-700 text-base leading-relaxed bg-white">
+                                        <div className="accordion-body">
                                             {item.content}
                                         </div>
-                                    )}
+                                    </div>
                                 </div>
                             ))}
-                            <button className="bg-[#D0B674] cursor-pointer text-white border hover:bg-white hover:text-[#D0B674] border-[#D0B674] font-semibold text-lg py-4 px-12 transition duration-300" onClick={openPopup}>Know More</button>
+                        </div>
+                        <div className="mt-4">
+                            <button
+                                className="btn btn-lg text-white"
+                                style={{ backgroundColor: '#D0B674', borderColor: '#D0B674' }}
+                                onClick={openPopup}
+                                onMouseEnter={e => e.target.style.backgroundColor = '#000'}
+                                onMouseLeave={e => e.target.style.backgroundColor = '#D0B674'}
+                            >
+                                Know More
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
+            <style jsx>{`
+              .accordion-button:focus {
+                box-shadow: none !important;
+              }
+              .accordion-button:not(.collapsed) {
+                color: inherit !important;
+                background-color: transparent !important;
+                box-shadow: none !important;
+              }
+              .accordion-item {
+                margin-bottom: 1rem;
+              }
+              .accordion-button {
+                font-size: 1.125rem; /* slightly bigger font */
+              }
+            `}</style>
         </section>
     );
 };

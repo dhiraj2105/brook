@@ -1,49 +1,58 @@
 "use client";
 
-import { FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa';
-
 export default function ContactSection() {
     return (
-        <section id="contact" className="relative bg-gray-100 py-24 px-6 text-center">
-            <div className="relative z-10 container mx-auto max-w-6xl">
-                <h5 className="text-2xl font-semibold uppercase tracking-widest text-gray-700 mb-4">
+        <section id="contact" className="bg-light py-5 px-3 text-center">
+            <div className="container position-relative z-1">
+                <h5 className="text-uppercase text-secondary fw-semibold mb-3">
                     Contact Us
                 </h5>
-                <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+                <h2 className="display-3 fw-bold text-dark mb-3">
                     Let’s Help You Find Your Perfect Home at The Brook
                 </h2>
-                <p className="text-lg text-gray-600 mb-12">
+                <p className="lead text-muted mb-5">
                     Please fill in your details and our team will get in touch shortly.
                 </p>
 
-                {/* Contact Form */}
-                <div className="mx-auto max-w-5xl bg-white rounded-xl shadow-lg p-[10px] border border-gray-300">
-                    <form className="bg-white p-8 md:p-12 border border-[#D0B674] rounded-lg space-y-10">
-                        <div className="grid md:grid-cols-3 gap-6">
-                            <input
-                                type="text"
-                                placeholder="Name"
-                                className="w-full border-b-2 border-gray-400 focus:border-blue-600 outline-none text-lg py-4 placeholder-gray-500"
-                                required
-                            />
-                            <input
-                                type="tel"
-                                placeholder="Phone Number"
-                                className="w-full border-b-2 border-gray-400 focus:border-blue-600 outline-none text-lg py-4 placeholder-gray-500"
-                                required
-                            />
-                            <input
-                                type="email"
-                                placeholder="Email ID"
-                                className="w-full border-b-2 border-gray-400 focus:border-blue-600 outline-none text-lg py-4 placeholder-gray-500"
-                                required
-                            />
+                <div
+                    className="mx-auto bg-white rounded shadow p-2 p-md-3 border border-secondary"
+                    style={{ maxWidth: '900px' }}
+                >
+                    <form
+                        className="border border-warning rounded p-5 p-md-5"
+                        style={{ minHeight: '100px' }}
+                    >
+                        <div className="row g-4 mb-4">
+                            <div className="col-md-4">
+                                <input
+                                    type="text"
+                                    placeholder="Name"
+                                    className="form-control form-control-lg rounded-0 border-0 border-bottom border-warning"
+                                    required
+                                />
+                            </div>
+                            <div className="col-md-4">
+                                <input
+                                    type="tel"
+                                    placeholder="Phone Number"
+                                    className="form-control form-control-lg rounded-0 border-0 border-bottom border-warning"
+                                    required
+                                />
+                            </div>
+                            <div className="col-md-4">
+                                <input
+                                    type="email"
+                                    placeholder="Email ID"
+                                    className="form-control form-control-lg rounded-0 border-0 border-bottom border-warning"
+                                    required
+                                />
+                            </div>
                         </div>
 
-                        <div className="w-full">
+                        <div className="mb-4">
                             <select
                                 required
-                                className="w-full border-b-2 border-gray-400 focus:border-blue-600 outline-none text-lg py-4 placeholder-gray-500 bg-white"
+                                className="form-select form-select-lg rounded-0 border-0 border-bottom border-warning"
                             >
                                 <option value="">Preferred Unit Type</option>
                                 <option value="3bhk">3 BHK</option>
@@ -51,25 +60,55 @@ export default function ContactSection() {
                             </select>
                         </div>
 
-                        <input
-                            type="text"
-                            placeholder="Message (Optional)"
-                            className="w-full border-b-2 border-gray-400 focus:border-blue-600 outline-none text-lg py-4 resize-none placeholder-gray-500"
-                        />
+                        <div className="mb-4">
+                            <input
+                                type="text"
+                                placeholder="Message (Optional)"
+                                className="form-control form-control-lg rounded-0 border-0 border-bottom border-warning"
+                            />
+                        </div>
 
                         <div className="text-center">
                             <button
                                 type="submit"
-                                className="hover:bg-[#D0B674] hover:text-white border border-[#D0B674] text-[#D0B674] font-semibold text-lg py-4 px-12 transition duration-300"
+                                className="btn btn-lg px-5 py-3 fw-semibold"
                             >
                                 Get In Touch
                             </button>
                         </div>
                     </form>
                 </div>
-
-
             </div>
+
+            <style jsx>{`
+                input:focus,
+                select:focus {
+                    border-color: #D0B674 !important;
+                    box-shadow: 0 0 0 0.25rem rgba(208, 182, 116, 0.5) !important;
+                    outline: none !important;
+                }
+
+                .form-control,
+                .form-select,
+                button {
+                    border-color: #D0B674 !important;
+                }
+
+                button {
+                    color: #D0B674 !important;
+                    transition: color 0.3s, background-color 0.3s;
+                }
+
+                button:hover {
+                    color: #fff !important;
+                    background-color: #D0B674 !important;
+                }
+
+                #contact {
+                    background: #fff !important;
+                    margin-bottom: 5rem;
+                }
+            `}</style>
         </section>
     );
 }

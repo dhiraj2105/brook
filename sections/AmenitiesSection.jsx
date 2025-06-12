@@ -1,72 +1,81 @@
-
-'use client';
-
 import {
     FaSwimmingPool,
-    FaBasketballBall,
     FaPlayCircle,
-    FaDumbbell,
-    FaGolfBall,
-    FaBowlingBall,
-    FaTree,
 } from 'react-icons/fa';
-import { GiTennisRacket } from 'react-icons/gi';
-import { GrYoga } from 'react-icons/gr';
-import { MdOutlineDeck } from 'react-icons/md';
+import { GiFullMotorcycleHelmet } from "react-icons/gi";
+import { MdOutlineLandscape, MdOutlineFireExtinguisher } from 'react-icons/md';
+import { AiOutlineSound, AiOutlineClockCircle } from 'react-icons/ai';
+import { BsFillLightningChargeFill } from 'react-icons/bs';
+import { RiSecurePaymentLine } from 'react-icons/ri';
 
 import bgImage from '../assets/amenities.png';
-import amenitiesImage from '../assets/amenities.jpg';
+import amenitiesImage from '../assets/brook2.png';
 
 const amenities = [
-    { icon: <FaPlayCircle />, label: "Toddlers' Play Area" },
-    { icon: <MdOutlineDeck />, label: 'Water Feature' },
-    { icon: <GrYoga />, label: 'Yoga, Aerobics' },
-    { icon: <FaSwimmingPool />, label: 'Swimming Pool' },
-    { icon: <FaBowlingBall />, label: 'Indoor Games Room' },
-    { icon: <FaBasketballBall />, label: 'Basketball Court' },
-    { icon: <GiTennisRacket />, label: 'Badminton Court' },
-    { icon: <FaTree />, label: 'Senior Citizen Garden' },
-    { icon: <MdOutlineDeck />, label: 'Deck Seating' },
-    { icon: <FaGolfBall />, label: 'Chip and Putting Greens' },
-    { icon: <FaDumbbell />, label: 'Jogging Track & Gymnasium' },
-    { icon: <FaTree />, label: 'Topiary Garden' },
+    { icon: <MdOutlineLandscape />, label: 'Grand Podium & Landscaped Walkways' },
+    { icon: <MdOutlineFireExtinguisher />, label: 'Robust RCC & Fire-Resistant Materials' },
+    { icon: <RiSecurePaymentLine />, label: '24x7 Smart Security with Facial Recognition' },
+    { icon: <FaSwimmingPool />, label: 'Infinity Pool, Clubhouse & Spa' },
+    { icon: <FaPlayCircle />, label: 'Kids’ Play Zone, Jogging Track, Mini Theatre' },
+    { icon: <BsFillLightningChargeFill />, label: 'EV Charging & Green Construction' },
+    { icon: <AiOutlineSound />, label: 'Acoustic Comfort & Thermal Insulation' },
+    { icon: <GiFullMotorcycleHelmet />, label: 'Mivan Construction – Finish & Durability' },
+    { icon: <AiOutlineClockCircle />, label: 'Fastest Construction in the Locality' },
 ];
 
 export default function AmenitiesSection() {
     return (
         <section
             id="amenities"
-            className="relative py-20 px-6 bg-cover bg-center "
-            style={{ backgroundImage: `url(${bgImage.src})` }}
+            className="py-6 px-3 position-relative text-dark"
+            style={{
+                backgroundImage: `url(${bgImage.src})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                paddingTop: '6rem',
+                paddingBottom: '6rem',
+            }}
         >
-            {/* Overlay */}
-            {/* <div className="absolute inset-0 bg-black/40 z-0" /> */}
-
-            {/* Content */}
-            <div className="relative z-10 container mx-auto text-center md:text-left">
-                <h5 className="text-xl font-semibold uppercase tracking-wide mb-4">Amenities</h5>
-                <h2 className="text-3xl md:text-5xl font-bold mb-12">Indulgent Living. Inspired Amenities.
-
+            <div className="container position-relative z-1 text-center text-md-start">
+                <h5
+                    className="fw-semibold text-uppercase mb-3"
+                    style={{ letterSpacing: '0.08em', fontSize: '1.25rem' }}
+                >
+                    Amenities
+                </h5>
+                <h2
+                    className="fw-bold mb-5"
+                    style={{ fontSize: '3rem', lineHeight: '1.2' }}
+                >
+                    Indulgent Living. Inspired Engineering.
                 </h2>
 
-                <div className="grid lg:grid-cols-2 gap-10 items-start">
-                    {/* Static Image */}
-                    <div className="w-full">
+                <div className="row g-5 align-items-start">
+                    {/* Left Image Column */}
+                    <div className="col-lg-6">
                         <img
                             src={amenitiesImage.src}
                             alt="Amenities"
-                            className="rounded-xl shadow-lg w-full h-auto object-cover"
+                            className="img-fluid rounded shadow"
+                            style={{
+                                height: '50vh',
+                                minHeight: '300px',
+                                width: '100%',
+                                objectFit: 'cover',
+                            }}
                         />
                     </div>
 
-                    {/* Amenities Grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        {amenities.map((item, index) => (
-                            <div key={index} className="flex items-center space-x-4">
-                                <div className="text-3xl">{item.icon}</div>
-                                <div className="text-xl font-semibold">{item.label}</div>
-                            </div>
-                        ))}
+                    {/* Right Amenities Grid */}
+                    <div className="col-lg-6">
+                        <div className="row row-cols-1 row-cols-sm-2 g-4">
+                            {amenities.map((item, index) => (
+                                <div key={index} className="col d-flex align-items-center gap-4">
+                                    <div className="fs-2">{item.icon}</div>
+                                    <div className="fs-5 fw-semibold">{item.label}</div>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>

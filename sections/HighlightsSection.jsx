@@ -1,77 +1,118 @@
 "use client";
+
 import Image from "next/image";
-import { MdSecurity, MdLocalPlay, MdOutlineLocalFireDepartment } from "react-icons/md";
-import { MdOutlineElectricalServices } from "react-icons/md";
-import { FaSpa } from "react-icons/fa6";
-import { FaSwimmingPool, FaChild, FaRunning } from "react-icons/fa";
+import {
+    MdSecurity,
+    MdOutlineElectricalServices,
+    MdOutlineConstruction,
+} from "react-icons/md";
+import { FaSwimmingPool, FaRunning } from "react-icons/fa";
 import { IoIosPeople } from "react-icons/io";
 import { PiGarageDuotone } from "react-icons/pi";
 
-// Background and Decorative Images
 import bgImage from "../assets/bgHighlight.webp";
-import highlightImg from "../assets/highlights.jpg";
+import highlightImg from "../assets/brook1.png";
 
-// Highlight items using React Icons
 const highlights = [
-    { icon: <MdSecurity size={32} />, text: "24x7 Smart Security with Facial Recognition" },
-    { icon: <FaSwimmingPool size={32} />, text: "Infinity Edge Swimming Pool & Sun Deck" },
-    { icon: <FaSpa size={32} />, text: "Lavish Clubhouse with Spa, Gym, and Banquet Hall" },
-    { icon: <MdLocalPlay size={32} />, text: "Indoor Games Zone & Mini Theatre" },
-    { icon: <FaRunning size={32} />, text: "Jogging Track for Active Lifestyle" },
-    { icon: <IoIosPeople size={32} />, text: "Senior Citizen Garden" },
-    { icon: <FaChild size={32} />, text: "Kids’ Play Area" },
-    { icon: <MdOutlineElectricalServices size={32} />, text: "EV Charging Stations & Green Building Features" },
-    { icon: <MdOutlineLocalFireDepartment size={32} />, text: "3-Tier Security & Fire Safety Compliance" },
-    { icon: <PiGarageDuotone size={32} />, text: "Grand Podium Entrance & Elevated Landscapes" },
+    { icon: <IoIosPeople size={36} />, text: "Ultra-Spacious 3 & 4 BHK Residences" },
+    { icon: <FaRunning size={36} />, text: "Fastest Construction in the Area" },
+    { icon: <PiGarageDuotone size={36} />, text: "3-Side Open Plot with Zero Debt" },
+    { icon: <MdOutlineElectricalServices size={36} />, text: "Smart, Future-Ready Living" },
+    { icon: <FaSwimmingPool size={36} />, text: "Resort-Inspired Amenities" },
+    { icon: <MdSecurity size={36} />, text: "Prime Connectivity & Location" },
+    { icon: <MdOutlineConstruction size={36} />, text: "Credible Builder with Proven Legacy" },
 ];
 
 export default function HighlightsSection() {
     const openPopup = () => {
-        window.dispatchEvent(new Event("openPopup")); // Dispatch event to open popup
+        window.dispatchEvent(new Event("openPopup"));
     };
+
     return (
         <section
             id="highlights"
-            className="relative py-16 md:py-20 px-4 sm:px-6 bg-cover bg-center overflow-hidden"
+            className="position-relative py-5 px-3 text-dark"
             style={{
                 backgroundImage: `url(${bgImage.src})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                overflow: "hidden",
             }}
         >
-            {/* Content */}
-            <div className="relative z-10 max-w-7xl mx-auto text-center">
-                <h5 className="text-sm md:text-base font-semibold uppercase tracking-widest mb-2">
+            <div className="position-relative z-1 container text-center">
+                <h5
+                    className="text-uppercase fw-semibold mb-2"
+                    style={{ letterSpacing: "0.08em" }}
+                >
                     Highlights
                 </h5>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-                    Thoughtful Spaces for a Balanced Life </h2>
-                <p className="text-lg md:text-xl text-gray-700 mb-10 max-w-3xl mx-auto">
-                    The Brook is more than just a home, it’s a lifestyle ecosystem designed for wellness, leisure, and smart living.
+                <h2 className="fw-bold mb-4" style={{ fontSize: "3rem" }}>
+                    Thoughtful Spaces for a Balanced Life
+                </h2>
+                <p
+                    className="mb-5 fs-5 mx-auto"
+                    style={{ maxWidth: "700px", color: "#555" }}
+                >
+                    The Brook is more than just a home, it’s a lifestyle ecosystem designed
+                    for wellness, leisure, and smart living.
                 </p>
 
-                <div className="flex flex-col md:flex-row items-center gap-10">
-                    {/* Highlight Image */}
-                    <div className="w-full md:w-1/2">
+                <div className="d-flex flex-column flex-md-row align-items-center gap-4">
+                    {/* Image */}
+                    <div className="w-100 w-md-50 mb-4 mb-md-0" style={{ border: '1px solid #D0B674', borderRadius: '10px' }}>
                         <Image
                             src={highlightImg}
                             alt="Highlight"
-                            className="rounded-lg shadow-xl w-full h-auto"
+                            className="img-fluid rounded shadow"
+                            style={{ borderRadius: '10px' }}
                         />
                     </div>
 
                     {/* Highlights List */}
-                    <div className="w-full md:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-6 text-left">
+                    <div className="w-100 w-md-50 d-flex flex-column gap-5">
                         {highlights.map((item, index) => (
-                            <div key={index} className="flex items-start gap-4">
-                                <span className="mt-1">{item.icon}</span>
-                                <p className="text-base sm:text-lg xl:text-xl leading-snug">{item.text}</p>
+                            <div
+                                key={index}
+                                className="d-flex align-items-center gap-3"
+                                style={{
+                                    transition: "transform 0.3s ease",
+                                }}
+                            >
+                                <div
+                                    style={{
+                                        color: "#D0B674",
+                                        transition: "transform 0.3s ease, color 0.3s ease",
+                                    }}
+                                    onMouseEnter={(e) => {
+                                        e.currentTarget.style.transform = "scale(1.2)";
+                                        e.currentTarget.style.color = "#b89e5d";
+                                    }}
+                                    onMouseLeave={(e) => {
+                                        e.currentTarget.style.transform = "scale(1)";
+                                        e.currentTarget.style.color = "#D0B674";
+                                    }}
+                                >
+                                    {item.icon}
+                                </div>
+                                <p className="mb-0" style={{ fontSize: "1.2rem", color: "#333" }}>
+                                    {item.text}
+                                </p>
                             </div>
                         ))}
                     </div>
+
                 </div>
 
-                {/* See More Button */}
-                <div className="mt-10">
-                    <button className="border bg-[#D0B674]  text-white px-6 py-2 cursor-pointer hover:bg-black text-xl hover:text-white transition" onClick={openPopup}>
+                {/* Button */}
+                <div className="mt-5">
+                    <button
+                        onClick={openPopup}
+                        className="btn px-4 py-2 text-white"
+                        style={{
+                            backgroundColor: "#D0B674",
+                            fontSize: "1.25rem",
+                        }}
+                    >
                         See More
                     </button>
                 </div>

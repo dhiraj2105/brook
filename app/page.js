@@ -7,10 +7,15 @@ import LocationSection from "@/sections/LocationSection";
 import FloorPlansSection from "@/sections/FloorPlanSection";
 import ContactSection from "@/sections/ContactSection";
 import PopupForm from "@/components/PopupForm";
+import RightSidebar from "@/components/RightSidebar";
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const page = () => {
   return (
     <>
+      <RightSidebar />
       <PopupForm />
       <HeroSection />
       <AboutSection />
